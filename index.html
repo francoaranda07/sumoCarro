@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic App</title>
+    <!-- Paquetes de Ionic -->
+    <link rel="stylesheet" href="librerias/ionic.bundle.css"/>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Fin paquetes Ionic -->
+</head>
+
+<body>
+
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>
+                    Sumo el Carro
+                </ion-title>
+                <ion-buttons class="priceTotal" slot="end">
+                    <ion-button>
+                        <p>
+                            <span id="total">0</span> $
+                        </p>
+                        <ion-icon name="cart"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-header>
+        
+        <ion-content>
+        <ion-grid class="main">
+            <ion-row>
+                <ion-col size-md="4" offset-md="4">
+                    <ion-card class="carInput">
+                        <ion-card-content>
+                            <ion-item>
+                                <!-- <ion-label position="floating">
+                                    Precio y unidad del producto:
+                                </ion-label> -->
+                                <div class="inputsCalc">
+                                    
+                                    <div class="inputPrice">
+                                        <ion-label position="floating">Precio: </ion-label>
+                                        <ion-input type="number" id="productPrice" placeholder="$">
+                                        </ion-input>
+                                    </div>
+                                    <div class="inputUnidad">
+                                        <ion-label position="floating">Unidad: </ion-label>
+                                        <ion-input type="number" id="productUnidad" placeholder="x" value="1">
+                                        </ion-input>
+                                    </div>
+                                </div>
+                            </ion-item>
+                            <ion-card-footer class="card-footer">
+                                <ion-button color="danger" class="button-cancel" id="button-cancel">
+                                    <ion-icon name="trash" slot="start"></ion-icon> Borrar
+                                </ion-button>
+                                <ion-button color="success" class="button-save" id="button-save">
+                                    <ion-icon name="add-circle" slot="start"></ion-icon> Sumar
+                                </ion-button>
+                                
+                            </ion-card-footer>
+                            
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>    
+            </ion-row>
+            <ion-row class="viewList">
+                <ion-col size-md="4" offset-md="4">
+                    <ion-list id="product-list">
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        </ion-content>
+    </ion-app>
+
+
+    <!-- Paquetes de Ionic -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="librerias/ionic.js"></script>
+    <!-- Fin paquetes Ionic -->
+    <script src="./app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $("a[title|='Hosted on free web hosting 000webhost.com. Host your own website for       FREE.']").css("display", "none");
+        $("img[alt|='www.000webhost.com']").css("display", "none");
+        });
+      </script>
+</body>
+
+</html>

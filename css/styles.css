@@ -1,0 +1,47 @@
+.priceTotal p{
+    font-size: 19px;
+}
+.carInput{
+    /* position: fixed; 
+    top: 10;
+    z-index: 999;  */
+    /* width: 89%; */
+    color: black;
+}
+.inputsCalc{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.inputPrice{
+    font-size: 16px;
+}
+.inputUnidad{
+    font-size: 16px;
+}
+/* .viewList{
+    padding-top: 40%;
+} */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.productList{
+    font-size: 23px;
+    color: black;
+}
+.productList ion-button ion-icon{
+    color: black;
+}
+.button-cancel {
+    width: 50%;
+}
+
+.button-save {
+    width: 50%;
+}
+
+.footer-card {
+    display: grid;
+}
