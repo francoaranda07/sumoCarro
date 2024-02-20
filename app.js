@@ -101,7 +101,8 @@ const presentAlertinput = (header, msg) => {
 buttonSave.addEventListener('click', () => { //cuando de clic
     const price =  parseFloat(productPrice.value);
     var unidad = parseInt(productUnidad.value)
-    if (isNaN(price) || price <= 0) {
+    if (isNaN(price) || price <= 0 || isNaN(unidad) || unidad <= 0) {
+        clearInputs()
         presentAlertinput("Dato inválido", "Debe ingresar un número mayor a cero.");
         return;
     }
@@ -113,11 +114,17 @@ buttonSave.addEventListener('click', () => { //cuando de clic
     saveLocalStorage(price * unidad); // Guardar la suma en el localStorage
     sumLocalStorage(); // Actualizar el total
     clearInputs();
+    productPrice.focus();
 })
 
 buttonCancel.addEventListener('click', () => {
     presentAlertDelete("¡Atención!", "¿Desea borrar todo?")
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Establecer el foco en el campo de entrada del precio
+    productPrice.focus();
+});
 
 getPricesLocalStorage()
 sumLocalStorage()
