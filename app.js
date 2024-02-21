@@ -107,15 +107,25 @@ document.addEventListener('DOMContentLoaded', () => {
     productPrice.focus();
 });
 
-buttonSave.addEventListener('click', () => { //cuando de clic
-    const price =  parseFloat(productPrice.value);
+// Event listener para el clic del botón
+buttonSave.addEventListener('click', handleButtonClick);
+
+// Event listener para la tecla Enter
+productPrice.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        handleButtonClick();
+    }
+});
+
+function handleButtonClick() {
+    const price = parseFloat(productPrice.value);
     var unidad = parseInt(productUnidad.value)
     if (isNaN(price) || price <= 0 || isNaN(unidad) || unidad <= 0) {
         clearInputs()
         presentAlertinput("Dato inválido", "Debe ingresar un número mayor a cero.");
         return;
     }
-    if(unidad == 0 || unidad == ""){
+    if (unidad == 0 || unidad == "") {
         unidad = 1
     }
 
@@ -124,7 +134,7 @@ buttonSave.addEventListener('click', () => { //cuando de clic
     sumLocalStorage(); // Actualizar el total
     clearInputs();
     productPrice.focus();
-})
+}
 
 buttonCancel.addEventListener('click', () => {
     presentAlertDelete("¡Atención!", "¿Desea borrar todo?")
