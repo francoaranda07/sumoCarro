@@ -2,6 +2,8 @@ const productPrice = document.querySelector('#productPrice');
 const productUnidad = document.querySelector('#productUnidad');
 const buttonSave = document.querySelector('#button-save');
 const buttonCancel = document.querySelector('#button-cancel');
+const buttonLinkedin = document.querySelector('#button-linkedin')
+const buttonInformation = document.querySelector('#button-info')
 const productList = document.querySelector('#product-list')
 const clearAllData = document.querySelector('#button-clear')
 const totalOutput = document.querySelector('#total')
@@ -100,6 +102,10 @@ const presentAlertinput = (header, msg) => {
     return alert.present();
 }   
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Establecer el foco en el campo de entrada del precio
+    productPrice.focus();
+});
 
 buttonSave.addEventListener('click', () => { //cuando de clic
     const price =  parseFloat(productPrice.value);
@@ -124,10 +130,14 @@ buttonCancel.addEventListener('click', () => {
     presentAlertDelete("¡Atención!", "¿Desea borrar todo?")
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Establecer el foco en el campo de entrada del precio
-    productPrice.focus();
+buttonLinkedin.addEventListener('click', () => {
+    // Abrir una nueva pestaña y redirigirla a la URL de LinkedIn
+    window.open('https://www.linkedin.com/in/franco-aranda-054a911b6', '_blank');
 });
+
+buttonInformation.addEventListener('click', () =>{
+    presentAlertinput("Manejo de datos", "Los datos ingresados son guardados únicamente en el local storage del navegador.")
+})
 
 getPricesLocalStorage()
 sumLocalStorage()

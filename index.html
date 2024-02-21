@@ -75,8 +75,20 @@
             </ion-row>
         </ion-grid>
         </ion-content>
-    </ion-app>
 
+        <ion-footer>
+            <ion-toolbar color="primary">
+                <ion-buttons class="infoFooter">
+                    <ion-button id="button-linkedin">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                    </ion-button>
+                    <ion-button id="button-info">
+                        <ion-icon name="information-circle"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-footer>
+    </ion-app>
 
     <!-- Paquetes de Ionic -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
@@ -84,12 +96,6 @@
     <!-- Fin paquetes Ionic -->
     <script src="./app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-        $("a[title|='Hosted on free web hosting 000webhost.com. Host your own website for       FREE.']").css("display", "none");
-        $("img[alt|='www.000webhost.com']").css("display", "none");
-        });
-      </script>
 </body>
 
 </html>

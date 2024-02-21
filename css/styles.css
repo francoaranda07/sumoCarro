@@ -41,7 +41,7 @@
 .button-save {
     width: 50%;
 }
-
-.footer-card {
-    display: grid;
+.infoFooter{
+    display: flex;
+    justify-content: space-around;
 }
