@@ -8,28 +8,31 @@ const totalOutput = document.querySelector('#total')
 let total = 0
 
 const insertDom = (price) => {
-    productList.innerHTML += `
+    productList.innerHTML = `
         <ion-card>
             <ion-card-content class="productList" style="display: flex; justify-content: space-between;">
                 $ ${addThousandSeparator(price)}
                 <ion-button color="danger" onclick="deleteItem(${price})"><ion-icon name="trash-outline"></ion-icon></ion-button>
             </ion-card-content>
         </ion-card>
-    `
+    ` + productList.innerHTML; // Agregar el nuevo elemento al principio del HTML
 }
 const getPricesLocalStorage = () => {
     let prices = JSON.parse(localStorage.getItem('prices'));
     productList.innerHTML = "";
     if (prices !== null && prices.length > 0) {
+        // Invertir el array
+        prices.reverse();
         prices.forEach(price => {
             insertDom(price);
         });
     }
-    
 }
+
 const saveLocalStorage = (price) => {
     let prices = JSON.parse(localStorage.getItem('prices')) || []; // Inicializar como array vacío si no hay datos
-    prices.push(price);
+    // Agregar el nuevo precio al principio del array
+    prices.unshift(price);
     localStorage.setItem('prices', JSON.stringify(prices));
 }
 
