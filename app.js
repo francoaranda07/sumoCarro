@@ -48,16 +48,13 @@ function sumLocalStorage() {
     totalSum = Math.round((totalSum + Number.EPSILON) * 100) / 100;
   
     // Mostrar con separador de miles y 2 decimales forzados
-    totalOutput.textContent = addThousandSeparator(totalSum.toFixed(2));
+    totalOutput.textContent = addThousandSeparator(totalSum);
 }
   
 
 // Función para agregar el punto como separador de miles
 function addThousandSeparator(number) {
-    return Number(number).toLocaleString('es-AR', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const clearResult = () => {
