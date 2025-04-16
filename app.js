@@ -38,15 +38,26 @@ const saveLocalStorage = (price) => {
     localStorage.setItem('prices', JSON.stringify(prices));
 }
 
-const sumLocalStorage = () => {
-    let prices = JSON.parse(localStorage.getItem('prices')) || [];
+function sumLocalStorage() {
+    const totalOutput = document.querySelector("#totalOutput");
+    let prices = JSON.parse(localStorage.getItem("precios")) || [];
+  
     let totalSum = prices.reduce((acc, curr) => acc + curr, 0);
-    totalOutput.textContent = addThousandSeparator(totalSum);
+  
+    // 🔧 Redondeo correcto a 2 decimales
+    totalSum = Math.round((totalSum + Number.EPSILON) * 100) / 100;
+  
+    // Mostrar con separador de miles y 2 decimales forzados
+    totalOutput.textContent = addThousandSeparator(totalSum.toFixed(2));
 }
+  
 
 // Función para agregar el punto como separador de miles
-function addThousandSeparator(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function addThousandSeparator(number) {
+    return Number(number).toLocaleString('es-AR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
 }
 
 const clearResult = () => {
